@@ -1,10 +1,10 @@
 import pandas as pd
 
-sum = 0
-with open('/Users/martinlejko/Desktop/github/advent-of-code-2023/01/inputEx2.txt', 'r') as f:
+with open('/Users/martinlejko/Desktop/github/advent-of-code-2023/01/input2.txt', 'r') as f:
     lines = f.readlines()
     numbers = ['1','2','3','4','5','6','7','8','9','-x-','one','two','three','four','five','six','seven','eight','nine']
-    id = 0
+    sum = 0
+
     for line in lines:
         max_index = None
         max_index_num = None
@@ -25,8 +25,5 @@ with open('/Users/martinlejko/Desktop/github/advent-of-code-2023/01/inputEx2.txt
                 pass
         if min_index_num != None:
             sum += (int(str(min_index_num) + str(max_index_num)))
-            print(str(min_index_num) + str(max_index_num))
-
-
 
 print(sum)
