@@ -25,7 +25,6 @@ with open('/Users/martinlejko/Desktop/github/advent-of-code-2023/02/input.txt', 
         if possible:
             sum += game_num
         
-
 print(sum)
 
 

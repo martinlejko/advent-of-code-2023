@@ -1,7 +1,4 @@
 with open('/Users/martinlejko/Desktop/github/advent-of-code-2023/02/input2.txt', 'r') as f:
-    max_red = 12
-    max_green = 13
-    max_blue = 14
     sum = 0
 
     lines = f.readlines()
