@@ -10,7 +10,7 @@ def check_validity(start,num):
         if lines[line_index + 1][i] != '.' and not (lines[line_index + 1][i]).isdigit():
             return True
     
-with open('03/input.txt', 'r') as f:
+with open('input.txt', 'r') as f:
     lines = f.readlines()
 
     for i in range(0,len(lines)):
