@@ -19,7 +19,6 @@ def handValue(hand):
     for key in cards:
         apperences.append(hand.count(key))
     apperences.sort(reverse=True)
-    print(apperences)
     if apperences[0] == 5:
         return 7
     if apperences[0] == 4:
@@ -31,15 +30,15 @@ def handValue(hand):
     if apperences[0] == 2 and apperences[1] == 2:
         return 3
     if apperences[0] == 2:
-        return 2
+        return 2  
     else:
         return 1
 
 def highCard(handA, handB):
-    for char in handA:
-        if cards[char] > cards[handB[0]]:
+    for i in range(0,len(handA)):
+        if cards[handA[i]] > cards[handB[i]]:
             return 0
-        elif cards[char] < cards[handB[0]]:
+        elif cards[handA[i]] < cards[handB[i]]:
             return 1
 
 def compareHands(handA, handB):
@@ -54,26 +53,25 @@ def compareHands(handA, handB):
         hands[handA][1] += 1
     else:
         hands[handB][1] += 1
-
-with open('07/example.txt','r') as f:
+ 
+with open('07/input.txt','r') as f:
     lines = f.readlines()
     hands = {}
+    sum = 0
+    
     for line in lines:
         line = line.strip().split(' ')
         hands[line[0]] = [line[1], 0]
 
-for hand in hands:
-    for hand2 in hands:
-        if hand != hand2:
-            compareHands(hand, hand2)
-for hand in hands:
-    for hand2 in hands:
-        if hand != hand2 and hands[hand][1] == hands[hand2][1]:
-            compareHands(hand, hand2)
+    for hand in hands:
+        for hand2 in hands:
+            if hand != hand2:
+                compareHands(hand, hand2)
+    hands = sorted(hands.items(), key=lambda x: x[1][1])
+    hands_count = len(hands)
 
-hands = sorted(hands.items(), key=lambda x: x[1][1])
-hands_count = len(hands)
-for i in range (1, hands_count+1):
-    print(f"{i} * {int(hands[i-1][1][0])}")
-
-print(hands)
+    for i in range (1, hands_count+1):
+        # print(f"{i} * {int(hands[i-1][1][0])}")
+        sum += i*int(hands[i-1][1][0])
+        
+    print(f"Sum: {sum}")
